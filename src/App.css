@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -34,5 +34,151 @@
   }
   to {
     transform: rotate(360deg);
+  }
+} */
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #416d19;
+  --secondary: #9bcf53;
+  --tertiory: #bfea7c;
+}
+header {
+  padding: 20px 30px;
+
+  background-color: var(--secondary);
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  border-bottom: 1px solid white;
+  width: 100%;
+}
+
+.logo {
+  font-size: 20px;
+  width: 80px;
+  border-radius: 70%;
+}
+.title {
+  color: white;
+  font-size: 30px;
+}
+
+.searchBar {
+  position: relative;
+  width: 100%;
+  /* border: 1px solid; */
+  padding-top: 10px;
+}
+.searchBar input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 15px;
+  border: none;
+}
+
+.searchBar input:focus {
+  border-color: white;
+}
+
+.searchIcon {
+  position: absolute;
+  right: 0px;
+  top: 10px;
+  border: 1px solid;
+  padding: 10px 18px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.userIcon {
+  position: relative;
+  font-size: 25px;
+  margin-top: 5px;
+  display: flex;
+  height: fit-content;
+  gap: 10px;
+  color: var(--primary);
+}
+.userIcon i {
+  color: white;
+}
+.dashbord {
+  padding: 10px;
+  position: absolute;
+  background-color: var(--primary);
+  top: 30px;
+  right: 0px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  /* padding: 5px; */
+  color: white;
+}
+
+/* Login  page start */
+.loginPage {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--tertiory);
+}
+.login-main_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 450px;
+  padding: 30px 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--secondary);
+  border-radius: 20px;
+}
+.login-main_wrapper p {
+  font-size: 20px;
+}
+.login-main_wrapper input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+}
+.login-main_wrapper button {
+  cursor: pointer;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+}
+/* Login page end */
+
+@media (max-width: 486px) {
+  header {
+    padding: 20px 10px;
+  }
+  .logo {
+    width: 60px;
+  }
+  .title {
+    display: none;
+  }
+  .userIcon {
+    font-size: 20px;
+  }
+
+  /* login */
+  .login-main_wrapper {
+    width: 350px;
+    height: 300px;
   }
 }
