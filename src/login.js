@@ -6,7 +6,8 @@ export function Login({ setLogin, setCurrentUser }) {
   const [password, setPassowrd] = useState(null);
   const [signIn, setSignIn] = useState(false);
 
-  function handleLogin() {
+  function handleLogin(e) {
+    e.preventDefault();
     userData.forEach((user, index) => {
       if (user.username === userName && user.pin === password) {
         setLogin(true);
@@ -24,7 +25,10 @@ export function Login({ setLogin, setCurrentUser }) {
         ) : (
           <div className="loginPage">
             {" "}
-            <form className="login-main_wrapper" onSubmit={handleLogin}>
+            <form
+              className="login-main_wrapper"
+              onSubmit={(e) => handleLogin(e)}
+            >
               {" "}
               <p>Login</p>{" "}
               <input
@@ -39,7 +43,7 @@ export function Login({ setLogin, setCurrentUser }) {
                 autoComplete="current-password"
                 onChange={(e) => setPassowrd(Number(e.target.value))}
               ></input>
-              <button>Login</button>
+              <button className="">Login</button>
               <p>
                 Don't have account click here to{" "}
                 <span
