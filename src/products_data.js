@@ -89,4 +89,4 @@ export const products = [
   },
 ];
 
-export const category = ["Sports", "Electronics"];
+export const category = ["Sports", "Electronics", "Home Apllicance"];

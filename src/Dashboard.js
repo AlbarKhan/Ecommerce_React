@@ -11,6 +11,10 @@ export function Dashboard() {
         <div className="dash-content">
           <div className="dash-head">
             <h2>Welcome to Dashboard</h2>
+            <div>
+              <span>Home</span>
+              <span>Logout</span>
+            </div>
           </div>
           <AddProducts />
         </div>
