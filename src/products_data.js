@@ -85,7 +85,7 @@ export const products = [
     original_price: 200,
     price: 100,
     category: "electronics",
-    img: "https://tse1.mm.bing.net/th?id=OIP.OXcS74T7wob1Yth0pkazKgHaFj&pid=Api&P=0&w=533&h=400",
+    img: "image.jpg",
   },
 ];
 

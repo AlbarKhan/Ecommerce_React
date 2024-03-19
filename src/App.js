@@ -3,16 +3,38 @@ import "./App.css";
 import { Header } from "./header";
 import { Login } from "./login";
 import { ProductsList } from "./product_list";
+import { Dashboard } from "./Dashboard";
+import { products } from "./products_data";
+import { AddProductsCategory } from "./AddProducts_category";
 
 function App() {
   const [islogin, setIsLogin] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
+  const [dashBoardOpen, setDashBoardOpen] = useState(false);
+  const [productsList, setProductsList] = useState(products);
   return (
     <div className="App">
       {islogin ? (
         <>
-          <Header currentUser={currentUser} admin={currentUser.admin} />
-          <MainWrapper />
+          {dashBoardOpen ? (
+            <Dashboard
+              onClickDashBoard={setDashBoardOpen}
+              setIsLogin={setIsLogin}
+            >
+              <AddProductsCategory setProductsList={setProductsList} />
+            </Dashboard>
+          ) : (
+            <div>
+              <Header
+                currentUser={currentUser}
+                admin={currentUser.admin}
+                onClickDashBoard={setDashBoardOpen}
+              />
+              <MainWrapper>
+                <ProductsList productsList={productsList} />
+              </MainWrapper>
+            </div>
+          )}
         </>
       ) : (
         <Login setLogin={setIsLogin} setCurrentUser={setCurrentUser} />
@@ -24,12 +46,8 @@ function App() {
 
 export default App;
 
-export function MainWrapper() {
-  return (
-    <div className="main-wrapper">
-      <ProductsList />
-    </div>
-  );
+export function MainWrapper({ children }) {
+  return <div className="main-wrapper">{children}</div>;
 }
 
 // export function ProductsList() {

@@ -1,9 +1,8 @@
-import { products } from "./products_data";
 import { Product } from "./product";
-export function ProductsList() {
+export function ProductsList({ productsList }) {
   return (
     <div className="product-list">
-      {products.map((product, index) => (
+      {productsList.map((product, index) => (
         <Product
           key={index}
           name={product.productName}

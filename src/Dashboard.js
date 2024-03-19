@@ -1,6 +1,9 @@
-import { AddProducts } from "./AddProducts";
+// import { AddProducts } from "./AddProducts";
 
-export function Dashboard() {
+export function Dashboard({ onClickDashBoard, setIsLogin, children }) {
+  function handleDashboard() {
+    onClickDashBoard(false);
+  }
   return (
     <div className="dashboard">
       <div className="dash-body">
@@ -12,11 +15,12 @@ export function Dashboard() {
           <div className="dash-head">
             <h2>Welcome to Dashboard</h2>
             <div>
-              <span>Home</span>
-              <span>Logout</span>
+              <span style={{ cursor: "pointer" }} onClick={handleDashboard}>
+                Home
+              </span>
             </div>
           </div>
-          <AddProducts />
+          {children}
         </div>
       </div>
     </div>

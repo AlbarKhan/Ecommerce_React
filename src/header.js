@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export function Header({ currentUser, admin }) {
+export function Header({ currentUser, admin, onClickDashBoard }) {
   const [dashBoard, setDAshboard] = useState(admin);
   const [dashBoardVisibility, setDashBoardVisibility] = useState(true);
+  const [search, setSearch] = useState("");
+  const searchElement = useRef(null);
   // console.log(admin);
+  useEffect(function () {
+    searchElement.current.focus();
+  }, []);
   return (
     <header>
       <nav style={{ paddingBottom: dashBoard ? "35px" : "15px" }}>
@@ -33,7 +38,9 @@ export function Header({ currentUser, admin }) {
           {dashBoard && dashBoardVisibility ? (
             <span
               className="dashbord"
-              onClick={() => console.log("dash click")}
+              onClick={() => {
+                onClickDashBoard(true);
+              }}
             >
               Dashboard
             </span>
@@ -44,7 +51,12 @@ export function Header({ currentUser, admin }) {
         {/* <span>Dashboard</span> */}
       </nav>
       <div className="searchBar">
-        <input type="text"></input>
+        <input
+          type="text"
+          ref={searchElement}
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        ></input>
         <button className="searchIcon">
           <i className="fa-solid fa-magnifying-glass"></i>
         </button>
